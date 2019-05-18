@@ -17,7 +17,9 @@ class ViewController: UIViewController {
     return string.rangeOfCharacter(from: CharacterSet(charactersIn: " ")) == nil
     }
     
+    
 
+    
     @IBOutlet weak var boxCursing2: UITextField!
     
     //buat restrict alfabet atau spasi//
@@ -27,12 +29,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var okbutton: UIButton!
     
+   
+    @IBOutlet weak var banner: UIImageView!
     
     
     @IBAction func buttonOK(_ sender: Any) {
         
-        if boxcursing1.text == "" || boxCursing2.text == "" {
-            let alert = UIAlertController(title: "❌", message: " ", preferredStyle: .alert)
+        if boxcursing1.text == "" {
+            let alert = UIAlertController(title: "🤬", message: "", preferredStyle: .alert)
             
             let action = UIAlertAction(title: "✅", style: .default) { (alertAction) in
                 alert.dismiss(animated: true, completion: nil)
@@ -43,17 +47,25 @@ class ViewController: UIViewController {
         } else {
         performSegue(withIdentifier: "pageBattle", sender: self)
     }
+    
     }
     
-    @IBOutlet weak var imageBanner: UIImageView!
     
+        
     @IBAction func buttonVenue1Action(_ sender:
         UIButton) {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PageBattle {
+            destination.boxCursing1 = boxcursing1.text; destination.boxCursing2 = boxCursing2.text
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         boxcursing1.delegate = self
         boxCursing2.delegate = self
 //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -68,10 +80,10 @@ class ViewController: UIViewController {
         self.boxCursing2.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
         UIView.animate(withDuration: 1.0, delay: 0.0, options: [.autoreverse, .repeat] , animations: {
-            self.imageBanner.frame.origin.y = 140
+            self.banner.frame.origin.y = 138
         }, completion: nil)
         
-        
+    
     }
     
     
@@ -97,4 +109,3 @@ extension ViewController: UITextFieldDelegate{
  
 }
 
-//
