@@ -30,9 +30,20 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonOK(_ sender: Any) {
+        
+        if boxcursing1.text == "" || boxCursing2.text == "" {
+            let alert = UIAlertController(title: "❌", message: " ", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "✅", style: .default) { (alertAction) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(action)
+            
+            present(alert, animated: true, completion: nil)
+        } else {
         performSegue(withIdentifier: "pageBattle", sender: self)
     }
-    
+    }
     
     @IBOutlet weak var imageBanner: UIImageView!
     
@@ -57,7 +68,7 @@ class ViewController: UIViewController {
         self.boxCursing2.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
         UIView.animate(withDuration: 1.0, delay: 0.0, options: [.autoreverse, .repeat] , animations: {
-            self.imageBanner.frame.origin.y = 138
+            self.imageBanner.frame.origin.y = 140
         }, completion: nil)
         
         
@@ -86,3 +97,4 @@ extension ViewController: UITextFieldDelegate{
  
 }
 
+//
