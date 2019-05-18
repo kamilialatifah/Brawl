@@ -28,7 +28,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var okbutton: UIButton!
     
     
+    
     @IBAction func buttonOK(_ sender: Any) {
+        performSegue(withIdentifier: "pageBattle", sender: self)
     }
     
     
