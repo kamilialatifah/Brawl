@@ -8,7 +8,12 @@
 
 import UIKit
 
+import AVFoundation
+
 class ViewController: UIViewController {
+    
+    var player: AVAudioPlayer = AVAudioPlayer()
+    
     
     @IBOutlet weak var boxcursing1: UITextField!
 
@@ -68,12 +73,24 @@ class ViewController: UIViewController {
         
         boxcursing1.delegate = self
         boxCursing2.delegate = self
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
-//        imageButtonVenue2.isUserInteractionEnabled = true
-//        imageButtonVenue2.addGestureRecognizer(tapGestureRecognizer)
-        
-     
-        
+
+        do
+        {
+            let audioPath = Bundle.main.path(forResource: "Opening 1.2", ofType: "mp3")
+            try player = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath!) as URL)
+        }
+        catch {
+            
+        }
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(AVAudioSession.Category.playback)
+        }
+        catch {
+        }
+        player.play()
+
+        player.numberOfLoops = 100
         
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.boxcursing1.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -87,7 +104,8 @@ class ViewController: UIViewController {
     }
     
     
-
+  
+    
 
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         
@@ -106,6 +124,21 @@ extension ViewController: UITextFieldDelegate{
         }
         return true
     }
+    
+    override func didReceiveMemoryWarning() {
+super.didReceiveMemoryWarning()
+    }
+    
+@IBAction func PauseButton(_ sender: Any) {
+    
+    if player.isPlaying {
+        player.pause()
+    }
+    else {
+    }
+    }
+    }
+    
  
-}
+
 
