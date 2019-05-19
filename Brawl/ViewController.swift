@@ -49,10 +49,14 @@ class ViewController: UIViewController {
             alert.addAction(action)
             
             present(alert, animated: true, completion: nil)
+            
+            player.play()
+            
         } else {
         performSegue(withIdentifier: "pageBattle", sender: self)
+            player.stop()
     }
-        player.stop()
+        
     
     }
     

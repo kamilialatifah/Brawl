@@ -80,8 +80,9 @@ class PageBattle: UIViewController {
         labelButtonCurse1.text = boxCursing1
         labelButtonCurse2.text = boxCursing2
 
-        buttoncurse1outlet.layer.cornerRadius = 7
-        buttoncurse2outlet.layer.cornerRadius = 7
+        self.buttoncurse1outlet.layer.cornerRadius = 7
+        self.buttoncurse2outlet.layer.cornerRadius = 7
+        
         // Do any additional setup after loading the view.
             
         
