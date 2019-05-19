@@ -52,6 +52,7 @@ class ViewController: UIViewController {
         } else {
         performSegue(withIdentifier: "pageBattle", sender: self)
     }
+        player.stop()
     
     }
     
@@ -112,7 +113,8 @@ class ViewController: UIViewController {
         let tappedImage = tapGestureRecognizer.view as! UIImageView
     }
     
-    }
+    
+}
 
 
 extension ViewController: UITextFieldDelegate{
@@ -128,6 +130,15 @@ extension ViewController: UITextFieldDelegate{
     override func didReceiveMemoryWarning() {
 super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func ResumeSoundButton(_ sender: Any) {
+    
+        player.play()
+    
+    }
+    
+    
+    
     
 @IBAction func PauseButton(_ sender: Any) {
     
