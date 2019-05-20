@@ -42,7 +42,7 @@
                                 <rect key="frame" x="87" y="403" width="240" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kjx-b6-Iln">
@@ -94,13 +94,13 @@
                                 <rect key="frame" x="-54" y="412" width="554" height="194"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bearninju" translatesAutoresizingMaskIntoConstraints="NO" id="9No-jq-UvE">
-                                <rect key="frame" x="-94" y="71" width="363" height="697"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="beruangdiawal" translatesAutoresizingMaskIntoConstraints="NO" id="9No-jq-UvE">
+                                <rect key="frame" x="-75" y="278" width="341" height="284"/>
+                                <autoresizingMask key="autoresizingMask"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="villain" translatesAutoresizingMaskIntoConstraints="NO" id="4K1-Xu-oO0">
-                                <rect key="frame" x="258" y="248" width="136" height="135"/>
+                                <rect key="frame" x="274" y="248" width="136" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLX-BY-Job">
@@ -198,7 +198,7 @@
     <resources>
         <image name="Api" width="563" height="235"/>
         <image name="Keyboard" width="69" height="33"/>
-        <image name="bearninju" width="237" height="195.5"/>
+        <image name="beruangdiawal" width="315" height="376"/>
         <image name="button home" width="109" height="134"/>
         <image name="buttonOK" width="79" height="42"/>
         <image name="label page 1" width="747" height="283"/>

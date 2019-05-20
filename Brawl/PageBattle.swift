@@ -59,6 +59,7 @@ class PageBattle: UIViewController {
         musuhFight()
         UIDevice.vibrate()
         
+        
     }
     
     @IBOutlet weak var bearTinju: UIImageView!
@@ -74,15 +75,19 @@ class PageBattle: UIViewController {
         
         }, completion: nil)
         button1balik()
+        
     }
     
     func musuhFight(){
+        musuhMerah.image = UIImage(named: "villain")
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
             self.musuhMerah.center.x += 140
            
             
         }, completion: nil)
         musuhMerahBalik()
+        bearTinju.image = UIImage(named: "bearkenatonjok")
+        
         
     }
     
@@ -92,17 +97,20 @@ class PageBattle: UIViewController {
     }
     
     func bearTinjuFight() {
+        bearTinju.image = UIImage(named: "bearninju")
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
-            self.bearTinju.center.x += 40
-            
+            self.bearTinju.center.x -= 60
         }, completion: nil)
         button1balik()
+        musuhMerah.image = UIImage(named: "musuhkenatonjok-1")
         
         
     }
     
     func button1balik(){
-        bearTinju.frame.origin = CGPoint(x: 0, y: 80)
+        
+        bearTinju.frame.origin = CGPoint(x: -75, y: 278)
+        
     }
     
     func musuhTubir() {

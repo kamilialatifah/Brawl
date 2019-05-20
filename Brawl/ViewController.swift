@@ -48,6 +48,22 @@ class ViewController: UIViewController {
                     self.view.backgroundColor = .black
                 })
                
+//                UIView.animate(withDuration: 0.5, animations: {
+//                    self.boxcursing1.backgroundColor = .red
+//                }) { (finished) in
+//                    UIView.animate(withDuration: 0.5, animations: {
+//                        self.boxcursing1.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+//                    })
+//                }
+//
+//                UIView.animate(withDuration: 0.5, animations: {
+//                    self.boxCursing2.backgroundColor = .red
+//                }) { (finished) in
+//                    UIView.animate(withDuration: 0.5, animations: {
+//                        self.boxCursing2.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+//                    })
+//
+//                }
             }
             
             
@@ -57,6 +73,33 @@ class ViewController: UIViewController {
     }
         
     
+        if boxcursing1.text == "" {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.boxcursing1.backgroundColor = .red
+            }) { (finished) in
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.boxcursing1.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                                    })
+                                }
+        } else if boxcursing1.text == "" {
+                        self.boxcursing1.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                
+            }
+        
+        if boxCursing2.text == "" {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.boxCursing2.backgroundColor = .red
+            }) { (finished) in
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.boxCursing2.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+                })
+            }
+        } else if boxCursing2.text == "" {
+            self.boxCursing2.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            
+        }
+        
+        
     }
     
     
