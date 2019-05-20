@@ -16,26 +16,25 @@ class PageBattle: UIViewController {
     
     var player2: AVAudioPlayer = AVAudioPlayer()
     
+     let urlPukul = URL(fileURLWithPath: Bundle.main.path(forResource: "suaratonjoksedetik", ofType: "mp3")!)
+    
+    var suaraPukul: AVAudioPlayer = AVAudioPlayer()
+    
     @IBAction func buttonHome(_ sender: Any) {
         
         player2.stop()
     }
     
-    @IBAction func buttonMute(_ sender: Any) {
-        
-        
-    }
     
     
-    @IBAction func buttonResumeMusic(_ sender: Any) {
     
-    }
+    
     
     @IBOutlet weak var apiberkobar: UIImageView!
     
     @IBOutlet weak var buttoncurse1outlet: UIButton!
     
-    @IBOutlet weak var api: UIImageView!
+ 
     
     @IBOutlet weak var labelButtonCurse1: UILabel!
     var boxCursing1: String!
@@ -47,8 +46,9 @@ class PageBattle: UIViewController {
         
         bearTinjuFight()
         UIDevice.vibrate()
-        
+       suaraTonjok()
     }
+    
     
     @IBOutlet weak var buttoncurse2outlet: UIButton!
     
@@ -58,6 +58,7 @@ class PageBattle: UIViewController {
         
         musuhFight()
         UIDevice.vibrate()
+        suaraTonjok()
         
         
     }
@@ -100,7 +101,7 @@ class PageBattle: UIViewController {
     func bearTinjuFight() {
         bearTinju.image = UIImage(named: "bearninju")
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
-            self.bearTinju.center.x -= 70
+            self.bearTinju.center.x -= 80
         }, completion: nil)
         button1balik()
         musuhMerah.image = UIImage(named: "musuhkenatonjok-1")
@@ -129,6 +130,15 @@ class PageBattle: UIViewController {
     func musuhBalik() {
         musuhMerah.frame.origin = CGPoint(x: 240, y: 248)
     
+    }
+    
+    func suaraTonjok() {
+        do {
+            suaraPukul = try AVAudioPlayer(contentsOf: urlPukul)
+            suaraPukul.play()
+        } catch {
+            // couldn't load file :(
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -175,6 +185,7 @@ class PageBattle: UIViewController {
         player2.numberOfLoops = 100
         
         
+        
         // Do any additional setup after loading the view.
         
         
@@ -188,6 +199,31 @@ class PageBattle: UIViewController {
             self.apiberkobar.frame.origin.y = 400
         }, completion: nil)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+       
+        
+    }
+    
+    @IBAction func buttonMute(_ sender: Any) {
+        
+        if player2.isPlaying {
+            player2.pause()
+        } else {
+            
+        }
+    }
+
+    
+    @IBAction func buttonResume(_ sender: Any) {
+        player2.play()
+    }
+    
 
     /*
     // MARK: - Navigation

@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var player: AVAudioPlayer = AVAudioPlayer()
     
     
+    
     @IBOutlet weak var boxcursing1: UITextField!
 
     //Buat restrict alfabet atau spasi//
@@ -176,6 +177,18 @@ extension ViewController: UITextFieldDelegate{
         }
         return true
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if player.isPlaying{
+            player.stop()
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if !player.isPlaying {
+            player.play()
+        }
+    }
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
