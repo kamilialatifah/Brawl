@@ -71,7 +71,7 @@ class PageBattle: UIViewController {
     
     func bearKenaTonjok(){
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
-            self.bearTinju.center.x += 193
+            self.bearTinju.center.x += 30
         
         }, completion: nil)
         button1balik()
@@ -86,6 +86,7 @@ class PageBattle: UIViewController {
             
         }, completion: nil)
         musuhMerahBalik()
+        bearKenaTonjok()
         bearTinju.image = UIImage(named: "bearkenatonjok")
         
         
@@ -99,13 +100,14 @@ class PageBattle: UIViewController {
     func bearTinjuFight() {
         bearTinju.image = UIImage(named: "bearninju")
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
-            self.bearTinju.center.x -= 60
+            self.bearTinju.center.x -= 70
         }, completion: nil)
         button1balik()
         musuhMerah.image = UIImage(named: "musuhkenatonjok-1")
-        
+        musuhTubir()
         
     }
+    
     
     func button1balik(){
         
@@ -114,7 +116,7 @@ class PageBattle: UIViewController {
     }
     
     func musuhTubir() {
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveLinear, animations: {
             self.musuhMerah.center.x -= 70
             }, completion: nil)
         
