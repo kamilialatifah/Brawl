@@ -8,7 +8,30 @@
 
 import UIKit
 
+import AVFoundation
+
+import AudioToolbox
+
 class PageBattle: UIViewController {
+    
+    var player2: AVAudioPlayer = AVAudioPlayer()
+    
+    @IBAction func buttonHome(_ sender: Any) {
+        
+        player2.stop()
+    }
+    
+    @IBAction func buttonMute(_ sender: Any) {
+        
+        
+    }
+    
+    
+    @IBAction func buttonResumeMusic(_ sender: Any) {
+    
+    }
+    
+    @IBOutlet weak var apiberkobar: UIImageView!
     
     @IBOutlet weak var buttoncurse1outlet: UIButton!
     
@@ -23,8 +46,8 @@ class PageBattle: UIViewController {
     @IBAction func buttoncurse1action(_ sender: Any) {
         
         bearTinjuFight()
+        UIDevice.vibrate()
         
-        musuhTubir()
     }
     
     @IBOutlet weak var buttoncurse2outlet: UIButton!
@@ -33,8 +56,9 @@ class PageBattle: UIViewController {
     
     @IBAction func buttoncurse2action(_ sender: Any) {
         
-        bearTinjuFight()
-        musuhTubir()
+        musuhFight()
+        UIDevice.vibrate()
+        
     }
     
     @IBOutlet weak var bearTinju: UIImageView!
@@ -43,18 +67,42 @@ class PageBattle: UIViewController {
     @IBOutlet weak var musuhMerah: UIImageView!
     
     
+    
+    func bearKenaTonjok(){
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
+            self.bearTinju.center.x += 193
+        
+        }, completion: nil)
+        button1balik()
+    }
+    
+    func musuhFight(){
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
+            self.musuhMerah.center.x += 140
+           
+            
+        }, completion: nil)
+        musuhMerahBalik()
+        
+    }
+    
+    func musuhMerahBalik(){
+        musuhMerah.frame.origin = CGPoint(x: 240, y: 248)
+        
+    }
+    
     func bearTinjuFight() {
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
-            self.bearTinju.center.x += 30
+            self.bearTinju.center.x += 40
             
         }, completion: nil)
         button1balik()
+        
         
     }
     
     func button1balik(){
         bearTinju.frame.origin = CGPoint(x: 0, y: 80)
-        
     }
     
     func musuhTubir() {
@@ -73,21 +121,63 @@ class PageBattle: UIViewController {
     
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if player2.isPlaying{
+            player2.stop()
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if !player2.isPlaying {
+            player2.play()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        
         
         view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         labelButtonCurse1.text = boxCursing1
         labelButtonCurse2.text = boxCursing2
 
-        self.buttoncurse1outlet.layer.cornerRadius = 7
-        self.buttoncurse2outlet.layer.cornerRadius = 7
+        self.buttoncurse1outlet.layer.cornerRadius = 16
+        self.buttoncurse2outlet.layer.cornerRadius = 17
+        
+        do
+        {
+            let audioPath2 = Bundle.main.path(forResource: "drumpage2", ofType: "mp3")
+            try player2 = AVAudioPlayer(contentsOf: URL(fileURLWithPath: audioPath2!) as URL)
+        }
+        catch {
+            
+        }
+        let session2 = AVAudioSession.sharedInstance()
+        do {
+            try session2.setCategory(AVAudioSession.Category.playback)
+        }
+        catch {
+        }
+        player2.play()
+        
+        player2.numberOfLoops = 100
+        
         
         // Do any additional setup after loading the view.
-            
+        
+        
+        
         
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.autoreverse, .repeat] , animations: {
+            self.apiberkobar.frame.origin.y = 400
+        }, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

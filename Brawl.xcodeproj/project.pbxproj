@@ -14,6 +14,7 @@
 		08EA2589228FBC4A003E5721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08EA2587228FBC4A003E5721 /* LaunchScreen.storyboard */; };
 		08EA2591228FDC02003E5721 /* PageBattle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EA2590228FDC02003E5721 /* PageBattle.swift */; };
 		08EA259822912DF3003E5721 /* Opening 1.2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08EA259722912DF3003E5721 /* Opening 1.2.mp3 */; };
+		08EA25A022919E1E003E5721 /* drumpage2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08EA259F22919E1E003E5721 /* drumpage2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		08EA2590228FDC02003E5721 /* PageBattle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageBattle.swift; sourceTree = "<group>"; };
 		08EA25922291246C003E5721 /* Opening.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = Opening.m4a; path = ../../../Downloads/Opening.m4a; sourceTree = "<group>"; };
 		08EA259722912DF3003E5721 /* Opening 1.2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Opening 1.2.mp3"; sourceTree = "<group>"; };
+		08EA259F22919E1E003E5721 /* drumpage2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drumpage2.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				08EA25922291246C003E5721 /* Opening.m4a */,
 				08EA258A228FBC4A003E5721 /* Info.plist */,
 				08EA259722912DF3003E5721 /* Opening 1.2.mp3 */,
+				08EA259F22919E1E003E5721 /* drumpage2.mp3 */,
 			);
 			path = Brawl;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				08EA2589228FBC4A003E5721 /* LaunchScreen.storyboard in Resources */,
 				08EA2586228FBC4A003E5721 /* Assets.xcassets in Resources */,
 				08EA259822912DF3003E5721 /* Opening 1.2.mp3 in Resources */,
+				08EA25A022919E1E003E5721 /* drumpage2.mp3 in Resources */,
 				08EA2584228FBC48003E5721 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +311,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pt.masaksendiri.Brawl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,7 +329,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pt.masaksendiri.Brawl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

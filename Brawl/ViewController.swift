@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     return string.rangeOfCharacter(from: CharacterSet(charactersIn: " ")) == nil
     }
     
-    
 
     
     @IBOutlet weak var boxCursing2: UITextField!
@@ -40,20 +39,20 @@ class ViewController: UIViewController {
     
     @IBAction func buttonOK(_ sender: Any) {
         
-        if boxcursing1.text == "" {
-            let alert = UIAlertController(title: "🤬", message: "", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "✅", style: .default) { (alertAction) in
-                alert.dismiss(animated: true, completion: nil)
+        if boxcursing1.text == "" || boxCursing2.text == "" {
+            UIDevice.vibrate()
+            UIView.animate(withDuration: 0.5, animations: {
+                self.view.backgroundColor = .red
+            }) { (finished) in
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.view.backgroundColor = .black
+                })
+               
             }
-            alert.addAction(action)
             
-            present(alert, animated: true, completion: nil)
-            
-            player.play()
             
         } else {
-        performSegue(withIdentifier: "pageBattle", sender: self)
+        performSegue(withIdentifier: "pageafterokay", sender: self)
             player.stop()
     }
         
@@ -74,10 +73,12 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() //cuma pas pertama kali load//
         
         boxcursing1.delegate = self
         boxCursing2.delegate = self
+        
+        
 
         do
         {
@@ -101,21 +102,23 @@ class ViewController: UIViewController {
         self.boxcursing1.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.boxCursing2.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         
-        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.autoreverse, .repeat] , animations: {
-            self.banner.frame.origin.y = 138
-        }, completion: nil)
+       
         
     
     }
     
     
-  
+    
+    //buat animasi banner muncul pas balik ke home//
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.0, delay: 0.0, options: [.autoreverse, .repeat] , animations: {
+            self.banner.frame.origin.y = 140
+        }, completion: nil)
+    }
+    
+   
     
 
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
-        
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-    }
     
     
 }
@@ -129,6 +132,10 @@ extension ViewController: UITextFieldDelegate{
             textField.resignFirstResponder()
         }
         return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -154,6 +161,13 @@ super.didReceiveMemoryWarning()
     }
     }
     
- 
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
+    }
+}
 
 
