@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var player: AVAudioPlayer = AVAudioPlayer()
     
     
+    @IBOutlet weak var buttonmuzik: UIButton!
+    
     
     @IBOutlet weak var boxcursing1: UITextField!
 
@@ -43,7 +45,7 @@ class ViewController: UIViewController {
         if boxcursing1.text == "" || boxCursing2.text == "" {
             UIDevice.vibrate()
             UIView.animate(withDuration: 0.5, animations: {
-                self.view.backgroundColor = .red
+                self.view.backgroundColor = .black
             }) { (finished) in
                 UIView.animate(withDuration: 0.5, animations: {
                     self.view.backgroundColor = .black
@@ -122,6 +124,9 @@ class ViewController: UIViewController {
         boxcursing1.delegate = self
         boxCursing2.delegate = self
         
+//        buat set image button
+//        let image = UIImage(named: "lambangmute") as UIImage?
+//        self.buttonmuzik.setImage(image, for: [])
         
 
         do
@@ -140,7 +145,7 @@ class ViewController: UIViewController {
         }
         player.play()
 
-        player.numberOfLoops = 100
+        player.numberOfLoops = -1
         
         self.view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.boxcursing1.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -209,10 +214,17 @@ super.didReceiveMemoryWarning()
     
 @IBAction func PauseButton(_ sender: Any) {
     
+    
+    
     if player.isPlaying {
         player.pause()
+        (sender as AnyObject).setImage(UIImage(named: "playbutton4"), for: UIControl.State.normal)
+        
     }
-    else {
+    else if !player.isPlaying {
+        player.play()
+        (sender as AnyObject).setImage(UIImage(named: "mutebutton4"), for: UIControl.State.normal)
+        
     }
     }
     }

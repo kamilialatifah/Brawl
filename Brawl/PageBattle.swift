@@ -8,6 +8,8 @@
 
 import UIKit
 
+import SpriteKit
+
 import AVFoundation
 
 import AudioToolbox
@@ -86,6 +88,7 @@ class PageBattle: UIViewController {
            
             
         }, completion: nil)
+        musuhMerah.image = UIImage(named: "musuhcharge")
         musuhMerahBalik()
         bearKenaTonjok()
         bearTinju.image = UIImage(named: "bearkenatonjok")
@@ -95,6 +98,7 @@ class PageBattle: UIViewController {
     
     func musuhMerahBalik(){
         musuhMerah.frame.origin = CGPoint(x: 240, y: 248)
+        
         
     }
     
@@ -122,10 +126,8 @@ class PageBattle: UIViewController {
             }, completion: nil)
         
         musuhBalik()
-        
-        
-        
     }
+    
     
     func musuhBalik() {
         musuhMerah.frame.origin = CGPoint(x: 240, y: 248)
@@ -204,6 +206,7 @@ class PageBattle: UIViewController {
         self.view.endEditing(true)
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
@@ -214,8 +217,11 @@ class PageBattle: UIViewController {
         
         if player2.isPlaying {
             player2.pause()
-        } else {
+            (sender as AnyObject).setBackgroundImage(UIImage(named: "playbutton4"), for: UIControl.State.normal)
             
+        } else if !player2.isPlaying {
+            player2.play()
+            (sender as AnyObject).setBackgroundImage(UIImage(named: "mutebutton4"), for: UIControl.State.normal)
         }
     }
 

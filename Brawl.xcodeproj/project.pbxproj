@@ -17,6 +17,8 @@
 		08EA25A022919E1E003E5721 /* drumpage2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08EA259F22919E1E003E5721 /* drumpage2.mp3 */; };
 		08EA25A22292F63D003E5721 /* pukul.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08EA25A12292F63D003E5721 /* pukul.mp3 */; };
 		08EA25A42292FAD2003E5721 /* suaratonjoksedetik.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 08EA25A32292FAD2003E5721 /* suaratonjoksedetik.mp3 */; };
+		08EA25AB2296FAD9003E5721 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 08EA25A92296FAD9003E5721 /* MyParticle.sks */; };
+		08EA25AC2296FAD9003E5721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08EA25AA2296FAD9003E5721 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		08EA259F22919E1E003E5721 /* drumpage2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = drumpage2.mp3; sourceTree = "<group>"; };
 		08EA25A12292F63D003E5721 /* pukul.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pukul.mp3; sourceTree = "<group>"; };
 		08EA25A32292FAD2003E5721 /* suaratonjoksedetik.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = suaratonjoksedetik.mp3; sourceTree = "<group>"; };
+		08EA25A92296FAD9003E5721 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		08EA25AA2296FAD9003E5721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +53,7 @@
 		08EA2572228FBC48003E5721 = {
 			isa = PBXGroup;
 			children = (
+				08EA25AA2296FAD9003E5721 /* Assets.xcassets */,
 				08EA257D228FBC48003E5721 /* Brawl */,
 				08EA257C228FBC48003E5721 /* Products */,
 			);
@@ -71,6 +76,7 @@
 				08EA2590228FDC02003E5721 /* PageBattle.swift */,
 				08EA2585228FBC4A003E5721 /* Assets.xcassets */,
 				08EA2587228FBC4A003E5721 /* LaunchScreen.storyboard */,
+				08EA25A92296FAD9003E5721 /* MyParticle.sks */,
 				08EA25922291246C003E5721 /* Opening.m4a */,
 				08EA258A228FBC4A003E5721 /* Info.plist */,
 				08EA25A32292FAD2003E5721 /* suaratonjoksedetik.mp3 */,
@@ -151,6 +157,8 @@
 				08EA25A42292FAD2003E5721 /* suaratonjoksedetik.mp3 in Resources */,
 				08EA25A22292F63D003E5721 /* pukul.mp3 in Resources */,
 				08EA2584228FBC48003E5721 /* Main.storyboard in Resources */,
+				08EA25AC2296FAD9003E5721 /* Assets.xcassets in Resources */,
+				08EA25AB2296FAD9003E5721 /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
