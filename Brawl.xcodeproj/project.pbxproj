@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082D5D00229A576D00BC56C1 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082D5CFF229A576D00BC56C1 /* File.swift */; };
+		082D5D06229A72D200BC56C1 /* machinegun3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 082D5D05229A72D200BC56C1 /* machinegun3.mp3 */; };
 		08EA257F228FBC48003E5721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EA257E228FBC48003E5721 /* AppDelegate.swift */; };
 		08EA2581228FBC48003E5721 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EA2580228FBC48003E5721 /* ViewController.swift */; };
 		08EA2584228FBC48003E5721 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08EA2582228FBC48003E5721 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		082D5CFF229A576D00BC56C1 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		082D5D05229A72D200BC56C1 /* machinegun3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = machinegun3.mp3; sourceTree = "<group>"; };
 		08EA257B228FBC48003E5721 /* Brawl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brawl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08EA257E228FBC48003E5721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08EA2580228FBC48003E5721 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 				08EA257E228FBC48003E5721 /* AppDelegate.swift */,
 				08EA2580228FBC48003E5721 /* ViewController.swift */,
 				08EA2582228FBC48003E5721 /* Main.storyboard */,
+				082D5CFF229A576D00BC56C1 /* File.swift */,
 				08EA2590228FDC02003E5721 /* PageBattle.swift */,
 				08EA2585228FBC4A003E5721 /* Assets.xcassets */,
 				08EA2587228FBC4A003E5721 /* LaunchScreen.storyboard */,
@@ -83,6 +88,7 @@
 				08EA259722912DF3003E5721 /* Opening 1.2.mp3 */,
 				08EA259F22919E1E003E5721 /* drumpage2.mp3 */,
 				08EA25A12292F63D003E5721 /* pukul.mp3 */,
+				082D5D05229A72D200BC56C1 /* machinegun3.mp3 */,
 			);
 			path = Brawl;
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08EA2589228FBC4A003E5721 /* LaunchScreen.storyboard in Resources */,
+				082D5D06229A72D200BC56C1 /* machinegun3.mp3 in Resources */,
 				08EA2586228FBC4A003E5721 /* Assets.xcassets in Resources */,
 				08EA259822912DF3003E5721 /* Opening 1.2.mp3 in Resources */,
 				08EA25A022919E1E003E5721 /* drumpage2.mp3 in Resources */,
@@ -170,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08EA2591228FDC02003E5721 /* PageBattle.swift in Sources */,
+				082D5D00229A576D00BC56C1 /* File.swift in Sources */,
 				08EA2581228FBC48003E5721 /* ViewController.swift in Sources */,
 				08EA257F228FBC48003E5721 /* AppDelegate.swift in Sources */,
 			);

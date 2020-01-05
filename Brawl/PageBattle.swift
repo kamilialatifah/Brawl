@@ -8,6 +8,8 @@
 
 import UIKit
 
+import GameplayKit
+
 import SpriteKit
 
 import AVFoundation
@@ -20,87 +22,97 @@ class PageBattle: UIViewController {
     
      let urlPukul = URL(fileURLWithPath: Bundle.main.path(forResource: "suaratonjoksedetik", ofType: "mp3")!)
     
+    var machineGun: AVAudioPlayer = AVAudioPlayer()
+    
+    let urlMachineGun = URL(fileURLWithPath: Bundle.main.path(forResource: "machinegun3", ofType: "mp3")!)
+    
     var suaraPukul: AVAudioPlayer = AVAudioPlayer()
     
-    @IBAction func buttonHome(_ sender: Any) {
-        
-        player2.stop()
-    }
+    //view//
     
     
+    @IBOutlet weak var boxforvillain: UIView!
+    
+    @IBOutlet weak var boxforbear: UIView!
     
     
-    
-    
+    //Image//
+    @IBOutlet weak var meteor1: UIImageView!
+    @IBOutlet weak var meteor2: UIImageView!
     @IBOutlet weak var apiberkobar: UIImageView!
+    @IBOutlet weak var bearTinju: UIImageView!
+    @IBOutlet weak var musuhMerah: UIImageView!
+    @IBOutlet weak var bearlilhead: UIImageView!
+    @IBOutlet weak var villainlilhead: UIImageView!
     
-    @IBOutlet weak var buttoncurse1outlet: UIButton!
-    
- 
-    
+    //Label//
     @IBOutlet weak var labelButtonCurse1: UILabel!
     var boxCursing1: String!
-
     @IBOutlet weak var labelButtonCurse2: UILabel!
     var boxCursing2: String!
     
+    //Button//
+    //Action//
     @IBAction func buttoncurse1action(_ sender: Any) {
         
         bearTinjuFight()
         UIDevice.vibrate()
        suaraTonjok()
+        
+        
     }
-    
-    
-    @IBOutlet weak var buttoncurse2outlet: UIButton!
-    
-    
-    
     @IBAction func buttoncurse2action(_ sender: Any) {
         
         musuhFight()
         UIDevice.vibrate()
-        suaraTonjok()
+        suaraGun()
+       
+    }
+    @IBAction func buttonHome(_ sender: Any) {
         
+        player2.stop()
+    }
+    //outlet//
+    @IBOutlet weak var buttoncurse1outlet: UIButton!
+    @IBOutlet weak var buttoncurse2outlet: UIButton!
+    
+    
+    
+    
+    
+    //function animation//
+    //blinking head//
+    
+    func blinkingbear() {
         
     }
+    //Meteor//
+    func meteorrain1() {
+        
+        meteor1.image = UIImage(named: "meteor")
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
+            self.meteor1.center.x -= 200
+            self.meteor1.center.y -= 80
+            
+        }, completion: nil)
+        meteor1Balik()
+    }
+
+    func meteor1Balik(){
+        meteor1.frame.origin = CGPoint (x: -200, y: 237)
+    }
     
-    @IBOutlet weak var bearTinju: UIImageView!
-    
-    
-    @IBOutlet weak var musuhMerah: UIImageView!
-    
-    
-    
+    //bear//
     func bearKenaTonjok(){
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
             self.bearTinju.center.x += 30
         
         }, completion: nil)
         button1balik()
+    
         
     }
     
-    func musuhFight(){
-        musuhMerah.image = UIImage(named: "villain")
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
-            self.musuhMerah.center.x += 140
-           
-            
-        }, completion: nil)
-        musuhMerah.image = UIImage(named: "musuhcharge")
-        musuhMerahBalik()
-        bearKenaTonjok()
-        bearTinju.image = UIImage(named: "bearkenatonjok")
-        
-        
-    }
-    
-    func musuhMerahBalik(){
-        musuhMerah.frame.origin = CGPoint(x: 240, y: 248)
-        
-        
-    }
     
     func bearTinjuFight() {
         bearTinju.image = UIImage(named: "bearninju")
@@ -120,7 +132,32 @@ class PageBattle: UIViewController {
         
     }
     
-    func musuhTubir() {
+    //bola merah//
+    
+    func musuhFight(){
+        musuhMerah.image = UIImage(named: "villain")
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
+            self.musuhMerah.center.x += 140
+            
+        }, completion: nil)
+        musuhMerah.image = UIImage(named: "musuhcharge")
+        meteorrain1()
+        musuhMerahBalik()
+        bearKenaTonjok()
+        bearTinju.image = UIImage(named: "bearkenatonjok")
+        
+        
+    }
+    
+    func musuhMerahBalik(){
+        musuhMerah.frame.origin = CGPoint(x: 240, y: 248)
+        
+        
+    }
+    
+    
+    
+    func musuhTubir() { //kena tonjok kamsudnya//
         UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveLinear, animations: {
             self.musuhMerah.center.x -= 70
             }, completion: nil)
@@ -134,6 +171,8 @@ class PageBattle: UIViewController {
     
     }
     
+    
+    //Suara//
     func suaraTonjok() {
         do {
             suaraPukul = try AVAudioPlayer(contentsOf: urlPukul)
@@ -143,11 +182,24 @@ class PageBattle: UIViewController {
         }
     }
     
+    func suaraGun() {
+        do {
+            machineGun = try
+            AVAudioPlayer(contentsOf: urlMachineGun)
+            machineGun.play()
+        } catch {
+        }
+    }
+    
+    //end of action pasca viewload//
+    
     override func viewWillDisappear(_ animated: Bool) {
         if player2.isPlaying{
             player2.stop()
         }
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         if !player2.isPlaying {
             player2.play()
@@ -168,6 +220,8 @@ class PageBattle: UIViewController {
         self.buttoncurse1outlet.layer.cornerRadius = 16
         self.buttoncurse2outlet.layer.cornerRadius = 17
         
+        
+        //backsound backsound//
         do
         {
             let audioPath2 = Bundle.main.path(forResource: "drumpage2", ofType: "mp3")
@@ -215,9 +269,11 @@ class PageBattle: UIViewController {
     
     @IBAction func buttonMute(_ sender: Any) {
         
+        
         if player2.isPlaying {
             player2.pause()
             (sender as AnyObject).setBackgroundImage(UIImage(named: "playbutton4"), for: UIControl.State.normal)
+            
             
         } else if !player2.isPlaying {
             player2.play()
@@ -228,6 +284,8 @@ class PageBattle: UIViewController {
     
     @IBAction func buttonResume(_ sender: Any) {
         player2.play()
+        machineGun.play()
+        suaraPukul.play()
     }
     
 
@@ -242,4 +300,8 @@ class PageBattle: UIViewController {
     */
 
 
+}
+
+extension UIView{
+    
 }
